@@ -39,11 +39,14 @@ $response = $cheetahPay->airtimeTransfer($amount, $network, $depositorsPhoneNo, 
 *Params*
  * **$pin** *The airtime pin of the recharge card*
  * **$amount** *The value of the recharge pin*
- * **$network** *Network has to be any of the following keywords: **MTN**, **AIRTEL**, **9 MOBILE**, **GLO** *
+ * **$network** *Network has to be any of the following keywords: **MTN**, **AIRTEL**, **9 MOBILE**, **GLO**, **MTN TRANSFER** *
  * **$orderID** *[optional] A unique ID that you can use to identify this transaction. This ID is part of the parameters returned in the callback*
  * **$depositorsPhoneNo** *[optional] Phone number of depositor. (**Note: ** For airtime tranfer, Depositor's phone number is needed.)*
 
-Analyze the returned response.
+Analyze the returned response. All responses contains an associative array of 2 key value pairs, a **success** and **message** keys. 
+
+Deposits are recorded in the CheetahPay server if and only if the **success** key value is true.
+
 ```
 if($response['success'] == true){
   // Airtime has been received, now awaiting validation
@@ -52,6 +55,7 @@ if($response['success'] == true){
   print($response['message']);
 }
 ```
+
 
 ## Authors
 

@@ -1,0 +1,35 @@
+
+array(
+	'success' => true,
+	'message' => 'Validation Successful'
+)
+
+array(
+	'success' => false,
+	'message' => 'Unrecognized network' // If an Invalid network is supplied
+)
+
+array(
+	'success' => false,
+	'message' => 'Amount cannot be less than NGN50'
+)
+
+array(
+	'success' => false,
+	'message' => 'Amount cannot be greater than NGN100,000'
+)
+
+array(
+	'success' => false,
+	'message' => 'Airtime Pin must be in digits'
+)
+
+array(
+	'success' => false,
+	'message' => 'Airtime PIN must be 12, 15 or 16 digits'
+)
+
+array(
+	'success' => false,
+	'message' => 'Phone number must be a total of 11 digits'
+)

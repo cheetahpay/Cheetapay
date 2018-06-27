@@ -1,35 +1,95 @@
 
 array(
 	'success' => true,
-	'message' => 'Validation Successful'
+	'message' => 'Validation Successful',
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Unrecognized network' // If an Invalid network is supplied
+	'message' => 'Unrecognized network', // If an Invalid network is supplied
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Amount cannot be less than NGN50'
+	'message' => 'Amount cannot be less than NGN50',
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Amount cannot be greater than NGN100,000'
+	'message' => 'Amount cannot be greater than NGN100,000',
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Airtime Pin must be in digits'
+	'message' => 'Airtime Pin must be in digits',
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Airtime PIN must be 12, 15 or 16 digits'
+	'message' => 'Airtime PIN must be 12, 15 or 16 digits',
+	'reference' => 137,
 )
 
 array(
 	'success' => false,
-	'message' => 'Phone number must be a total of 11 digits'
+	'message' => 'Phone number must be a total of 11 digits',
+	'reference' => 137,
 )
+
+
+*************************************************************************
+
+After airtime has been evaluated, the callback response is in this nature
+*************************************************************************
+
+$response_data = [
+            
+            'private_key' => YOUR_PRIVATE_KEY,
+            
+            'public_key' => YOU_PUBLIC_KEY,
+
+	    'mode' => string (live|test),
+            
+            'order_id' => integer|string, // [optional] A unique ID you supplied to enable you identify this transaction
+            
+            'status' => string (pending|credited|invalid),
+            
+            'amount ' => float,
+                        
+            'phone' => string,
+            
+            'network' => string,
+            
+            'reference' => integer,
+            
+            'transaction_charge' => float,
+            
+            'balance_before_transaction' => float,
+            
+            'balance_after_transaction ' => float,
+        ];
+
+For the response data, use the status field to know the validity of the transaction.
+
+
+Possible statuses:
+
+'credited': Airtime is valid and  has been loaded successfully.
+
+'invalid': Airtime is invalid
+
+'pending': Airtime has not been loaded yet.
+
+
+
+Possible modes:
+
+'test': Your account is in test mode, hence validated airtime is not creditted to your account
+
+'live': Account is in Production or Live Mode, Airtime supplied in the mode is validated thoroughly and account credited if valid
+

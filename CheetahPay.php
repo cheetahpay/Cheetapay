@@ -7,9 +7,9 @@
  *
  * @category Authentication
  * @package  CheetahPay
- * @author   Mbanusi Ikenna <b>Incofabikenna@gmail.com</b>
+ * @author   CheetahPay Communications <b>cheetahfastpay@gmail.com</b>
  * @license  http://opensource.org/licenses/BSD-3-Clause 3-clause BSD
- * @link     https://github.com/incofab
+ * @link     https://github.com/cheetahpay
  */
 class CheetahPay 
 {

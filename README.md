@@ -3,7 +3,16 @@ Official Cheetahpay API integration script. Cheetahpay is a payment gateway that
 
 ## Getting Started
 
-This script helps you to easily make curl requests to cheetpay API endpoints and return responses as an array
+This script helps you to easily make curl requests to cheetahpay API endpoints and return responses as an array
+
+## Important Notice
+
+**Test Mode Valid Pin** = 1111222233334444
+
+Logon to your Cheetahpay account and set the developer mode to Test Mode, Do not forget to reset it back to Live Mode when you move to production mode.
+
+On test mode, any pin aside the above stated valid pin (1111222233334444) is deemed invalid.
+
 
 ### Prerequisites
 
@@ -55,6 +64,51 @@ if($response['success'] == true){
   print($response['message']);
 }
 ```
+
+After submitting the airtime pin, CheetahPay platform will validate the transaction in approximately 2mins, 
+then notify you on the validity of the airtime through the callback API you supplied on the developer section.
+
+The Callback data is in this form
+
+```
+$response_data = [
+	
+	'private_key' => YOUR_PRIVATE_KEY,
+	
+	'public_key ' => YOU_PUBLIC_KEY,
+	
+	'mode' => string (live|test),
+	
+	'order_id' => integer|string, // [optional] A unique ID you supplied to enable you identify this transaction
+	
+	'status' => string (pending|credited|invalid),
+	
+	' amount ' => float,
+				
+	'phone' => string,
+	
+	'network' => string,
+	
+	'reference' => integer,
+	
+	'transaction_charge' => float,
+	
+	'balance_before_transaction' => float,
+	
+	' balance_after_transaction ' => float,
+];
+```
+
+Use the status field to know the validity of the transaction.
+
+*Possible statuses:*
+* **credited** *Airtime is valid and  has been loaded successfully.*
+* **invalid** *Airtime is invalid*
+* **pending** *Airtime has not been loaded yet.*
+
+*Possible Modes:*
+* **live** *You are in production mode and all supplied airtime is validated*
+* **test** *In test Mode, All airtime supplied (except 1111222233334444) in this mode is deemed invalid.*
 
 
 ## Authors

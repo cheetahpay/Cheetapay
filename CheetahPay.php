@@ -53,7 +53,7 @@ class CheetahPay
      * @param int $network
      * @param int $orderID A unique ID to identify this transaction. This iID will be return when airtime has been validated
      * @param unknown $depositorsPhoneNo
-     * @return Array. The zoranga responses are already converted to array to ease use
+     * @return Array. The CheetahPay responses are already converted to array to ease use
      */
     function pinDeposit($pin, $amount, $network, $orderID = null, $depositorsPhoneNo = null) 
     {
@@ -62,8 +62,8 @@ class CheetahPay
         $curl_post_data = array
         (
             'amount' => $amount,
-            'public_key' => self::$privateKey,
-            'private_key' => self::$publicKey,
+            'private_key' => self::$privateKey,
+            'public_key' => self::$publicKey,
             'phone' =>  $this->formatPhoneNo($depositorsPhoneNo),
             'pin' => $pin,
             'network' => $network,

@@ -23,20 +23,20 @@ Minimum requirement is PHP 5.4 and above
 
 Download this Github CheetahPay.php file and incluce it in your project
 
-```
+```php
 require_once 'CheetahPay.php';
 ```
 
 Then, initialize the class CheetahPay with your private and public keys
 
-```
+```php
 $cheetahPay = new CheetahPay(YOUR_PRIVATE_KEY, YOUR_PUBLIC_KEY);
 ```
 
 Ofcourse, replace the YOUR_PRIVATE_KEY and YOUR_PUBLIC_KEY with the Keys obtained in the developer section of your Cheetahpay dahboard.
 Next use the instance of the class to call either the Pin deposit or airtime transfer methods
 
-```
+```php
 // For airtime deposit
 $response = $cheetahPay->pinDeposit($pin, $amount, $network, $orderID, $depositorsPhoneNo); // For Pin Deposit
 
@@ -56,7 +56,7 @@ Analyze the returned response. All responses contains an associative array of 2 
 
 Deposits are recorded in the CheetahPay server if and only if the **success** key value is true.
 
-```
+```php
 if($response['success'] == true){
   // Airtime has been received, now awaiting validation
 }else{
@@ -70,7 +70,7 @@ then notify you on the validity of the airtime through the callback API you supp
 
 The Callback data is in this form
 
-```
+```php
 $response_data = [
 	
 	'private_key' => YOUR_PRIVATE_KEY,
@@ -88,6 +88,8 @@ $response_data = [
 	'phone' => string,
 	
 	'network' => string,
+	
+	'module_phone_no' => string, // Phone no forairtime transfer.
 	
 	'reference' => integer,
 	

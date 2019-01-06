@@ -15,7 +15,7 @@ class CheetahPay
 {
     private static $privateKey = ''; 
     private static $publicKey = ''; 
-    private static $endpoint = 'https://cheetahpay.com/api/v1/';
+    private static $endpoint = 'https://cheetahpay.com.ng/api/v1';
     
     const NETWORK_9_MOBILE = '9 MOBILE';
     const NETWORK_AIRTEL = 'AIRTEL';

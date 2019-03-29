@@ -108,6 +108,8 @@ Use the status field to know the validity of the transaction.
 * **invalid** *Airtime is invalid*
 * **pending** *Airtime has not been loaded yet.*
 
+You can use this page to test your callback handler https://cheetahpay.com.ng/test-api-callback
+
 *Possible Modes:*
 * **live** *You are in production mode and all supplied airtime is validated*
 * **test** *In test Mode, All airtime supplied (except 1111222233334444) in this mode is deemed invalid.*
